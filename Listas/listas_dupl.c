@@ -40,10 +40,12 @@ Lista* inserirFinal(Lista* l, int valor) {
 
 void imprimir(Lista* l) {
     Lista* p = l;
+    printf("Esquerda para direita: ");
     while (p != NULL) {
         printf("%d ", p->info);
         p = p->prox;
     }
+    printf("\n");
 }
 
 void imprimirReverso(Lista* l) {
@@ -54,8 +56,25 @@ void imprimirReverso(Lista* l) {
     while (p->prox != NULL) {
         p = p->prox;
     }
+    printf("Direita para esquerda: ");
     while (p != NULL) {
         printf("%d ", p->info);
         p = p->ant;
     }
+    printf("\n");
+}
+
+int main(void) {
+    Lista* l = NULL;
+
+    l = inserirFinal(l, 10);
+    l = inserirFinal(l, 20);
+    l = inserirFinal(l, 30);
+
+    l = inserirInicio(l, 5);
+
+    imprimir(l);
+    imprimirReverso(l);
+
+    return 0;
 }

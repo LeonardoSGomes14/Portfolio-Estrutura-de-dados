@@ -15,7 +15,7 @@ Lista* inserirFinal(Lista* l, int valor) {
     novo->info = valor;
 
     if (l == NULL) {
-        novo->prox = novo; 
+        novo->prox = novo;
         return novo;
     }
 
@@ -38,4 +38,18 @@ void imprimir(Lista* l) {
         p = p->prox;
     } while (p != l);
     printf("(volta ao inicio)\n");
+}
+
+int main(void) {
+    Lista* l = inicializa();
+
+    l = inserirFinal(l, 10);
+    l = inserirFinal(l, 20);
+    l = inserirFinal(l, 30);
+    l = inserirFinal(l, 40);
+
+    printf("Lista circular:\n");
+    imprimir(l);
+
+    return 0;
 }

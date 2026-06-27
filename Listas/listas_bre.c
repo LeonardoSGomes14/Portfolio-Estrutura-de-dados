@@ -40,3 +40,51 @@ void libera(Lista* l) {
         p = t;
     }
 }
+
+Lista* insere(Lista* l, int i) {
+    Lista* novo = (Lista*) malloc(sizeof(Lista));
+    novo->info = i;
+    novo->prox = l;
+    return novo;
+}
+
+void imprime(Lista* l) {
+    Lista* p;
+    for (p = l; p != NULL; p = p->prox) {
+        printf("%d -> ", p->info);
+    }
+    printf("NULL\n");
+}
+
+int main(void) {
+    Lista* l = NULL;
+
+
+    l = insere(l, 5);
+    l = insere(l, 4);
+    l = insere(l, 3);
+    l = insere(l, 2);
+    l = insere(l, 1);
+
+    printf("Lista inicial:\n");
+    imprime(l);
+
+
+    int valor = 3;
+    Lista* resultado = busca(l, valor);
+    if (resultado != NULL)
+        printf("Valor %d encontrado na lista.\n", valor);
+    else
+        printf("Valor %d nao encontrado.\n", valor);
+
+
+    l = remove_ultimo(l);
+    printf("\nApos remover o ultimo elemento:\n");
+    imprime(l);
+
+
+    libera(l);
+    printf("\nMemoria liberada.\n");
+
+    return 0;
+}
